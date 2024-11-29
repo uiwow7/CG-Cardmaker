@@ -14,7 +14,7 @@
 - Activation Condition - Type in the activation condition of the card; Uses a quite different style than normal text.
 - Lines Input - Controls how many lines the *activation condition* has, not the actual card text (I'll put a WARNING!!!! for this as well)
 ### Advanced Features
-Title/Rules text size - Controls the `font size` property in css for the title and card text respectively.
-Title/Rules text vertical offset - Controls the css `top` property (`position` is set to `absolute`) for the title and card text respectively
-Rules text line spacing - Controls the css `line-spacing` property for the card text
-WARNING!!! All of these values are px
+- Title/Rules text size - Controls the `font size` property in css for the title and card text respectively.
+- Title/Rules text vertical offset - Controls the css `top` property (`position` is set to `absolute`) for the title and card text respectively
+- Rules text line spacing - Controls the css `line-spacing` property for the card text
+- WARNING!!! All of these values are px
