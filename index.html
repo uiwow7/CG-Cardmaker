@@ -33,8 +33,10 @@
 
 			.power-health {
 				position: absolute;
-				top: 55px;
-				font-size: 30px;
+ 			    top: 55px;
+			    font-size: 30px;
+  			    text-align: center;
+			    width: 48px;
 			}
 
 			.card-text-4-lines {
@@ -158,10 +160,10 @@
 			}
 
 			#power {
-				left: 120px;
+				left: 115px;
 			}
 			#health {
-				left: 337.5px;
+				left: 332.5px;
 			}
 			#typeinput {
 				position: absolute;
@@ -427,6 +429,7 @@
 				<option>7star</option>
 				<option>8star</option>
 				<option>9star</option>
+				<option>10star</option>
 			</select>
 			<p id="starinputlabel">How many stars does this cost?</p>
 			<select onchange="planetInput()" id="planetinput">
@@ -448,7 +451,7 @@
 		<input id="titlesizeinput" type="number" value="30" onchange="titleSizeInput()">
 		<p id="titlesizeinputlabel">Title text size</p>
 		<input id="textoffsetinput" type="number" value="456.5" onchange="textOffsetInput()">
-		<p id="textoffsetinputlabel">Rules text vertical offset (WARNING!!! The placeholder does not update as text moves when you change card types)</p>
+		<p id="textoffsetinputlabel">Rules text vertical offset</p>
 		<input id="titleoffsetinput" type="number" value="5" onchange="titleOffsetInput()">
 		<p id="titleoffsetinputlabel">Title vertical offset</p>
 		<input id="textspacinginput" type="number" value="14" onchange="textSpacingInput()">
