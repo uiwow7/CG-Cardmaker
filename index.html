@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			html {
+				height: 100%;
+				width: 100%;
+			}
+
+			@font-face {
+					font-family: 'Shaimus'; /*a name to be used later*/
+					src: url('Shaimus.ttf'); /*URL to font*/
+			}
+			@font-face {
+					font-family: 'Shaimus-Light'; /*a name to be used later*/
+					src: url('ShaimusCleanLight.otf'); /*URL to font*/
+			}
+
+			.shaimus {
+				font-family: 'Shaimus';
+			}
+			.shaimus-light {
+				font-family: 'Shaimus-Light';
+			}
+
+			.card-title {
+				position: absolute;
+				top: 5px;
+				font-size: 30px;
+				left: 48px;
+				letter-spacing: -2px;
+			}
+
+			.power-health {
+				position: absolute;
+				top: 55px;
+				font-size: 30px;
+			}
+
+			.card-text-4-lines {
+				position:absolute;
+				top: 456.5px;
+				left: 47.5px;
+				font-size: 15px;
+				line-height: 14px;
+				width: 335px;
+			}
+
+			.card-text-res-attach {
+				position:absolute;
+				top: 415.5px;
+				left: 47.5px;
+				font-size: 15px;
+				line-height: 14px;
+			}
+
+			.card-text-acti-2-lines {
+				position:absolute;
+				top: 450px;
+				left: 47.5px;
+				font-size: 15px;
+				line-height: 14px;
+			}
+			.card-text-acti-1-lines {
+				position:absolute;
+				top: 440px;
+				left: 42.5px;
+				font-size: 15px;
+				line-height: 14px;
+			}
+			.card-text-acti-3-lines {
+				position:absolute;
+				top: 465px;
+				left: 44.5px;
+				font-size: 15px;
+				line-height: 14px;
+			}
+			
+			.stars {
+				position: absolute;
+				top: 128px;
+				left: 40px;
+			}
+
+			.planet-text {
+				position: absolute;
+				top: 62.5px;
+				left: 177.5px;
+				font-size: 22.5px;
+				text-align: center;
+			}
+
+			.rokah-rules-text {
+				color: #dc8f67;
+			}
+
+			.sheos-rules-text {
+				color: #af1916;
+			}
+			
+			.baro-rules-text {
+				color: #423e3b;
+			}
+
+			.sindell-rules-text {
+				color: #3b235a;
+			}
+
+			.sindian-rules-text {
+				color: #bca001;
+			}
+
+			.teklar-rules-text {
+				color: #01a799;
+			}
+
+			.gaios-rules-text {
+				color: #497603;
+			}
+
+			.palicium-rules-text {
+				color: #0b4d6f;
+			}
+
+			.no-planet-rules-text {
+				color: #555555;
+			}
+
+			.acti-text-2-lines {
+    			top: 415.5px;
+    			position: absolute;
+    			font-size: 14px;
+    			color: #c1b3c8;
+    			left: 45.5px;
+    			line-height: 14px;
+			}
+
+			.acti-text-1-lines {
+    			top: 419px;
+    			position: absolute;
+    			font-size: 14px;
+    			color: #c1b3c8;
+    			left: 45.5px;
+    			line-height: 14px;
+			}
+
+			.acti-text-3-lines {
+    			top: 417.5px;
+    			position: absolute;
+    			font-size: 14px;
+    			color: #c1b3c8;
+    			left: 45.5px;
+    			line-height: 14px;
+			}
+
+			.invis {
+				display: none;
+			}
+
+			#power {
+				left: 120px;
+			}
+			#health {
+				left: 337.5px;
+			}
+			#typeinput {
+				position: absolute;
+				left: 430px;
+				top: 25px;
+				width: 150px;
+				height: 50px;
+				font-size: 25px;
+			}
+			#planetinput {
+				position: absolute;
+				left: 430px;
+				top: 175px;
+				width: 150px;
+				height: 50px;
+				font-size: 25px;
+			}
+			#starinput {
+				position: absolute;
+				left: 430px;
+				top: 100px;
+				width: 100px;
+				height: 50px;
+				font-size: 25px;
+			}
+			#lineinput {
+				position: absolute;
+				left: 430px;
+				top: 100px;
+				width: 110px;
+				height: 50px;
+				font-size: 25px;
+			}
+			#maincard {
+				position: absolute;
+				/*height: 50%;
+				width: 50%;*/
+			}
+			.art-creature {			
+				position: absolute;
+    			top: 166px;
+    			z-index: 1;
+    			left: 51px;
+    			height: 296px;
+    			width: 325px;
+			}
+			.art-resource {				
+				position: absolute;
+    			top: 92px;
+    			z-index: 1;
+    			left: 51px;
+    			height: 325px;
+    			width: 327px;
+			}
+			.art-permanent-resource {			
+				position: absolute;
+    			top: 92px;
+    			z-index: 1;
+    			left: 51px;
+    			height: 325px;
+    			width: 327px;
+			}
+			.art-attachment {			
+				position: absolute;
+    			top: 89px;
+    			z-index: 1;
+    			left: 49px;
+    			height: 330px;
+    			width: 329px;
+			}
+			.art-acti-1-lines {
+    			position: absolute;
+    			top: 87px;
+    			z-index: 1;
+    			left: 48px;
+    			height: 332px;
+    			width: 333px;
+			}
+			.art-acti-2-lines {
+    			position: absolute;
+    			top: 90px;
+    			z-index: 1;
+    			left: 50px;
+    			height: 327px;
+    			width: 328px;
+			}
+			.art-acti-3-lines {	
+				position: absolute;
+    			top: 89px;
+    			z-index: 1;
+    			left: 49px;
+    			height: 328px;
+    			width: 329px;
+			}
+			#typeinputlabel {
+				position: absolute;
+				left: 430px;
+				top: -10px;
+			}
+			#planetinputlabel {
+				position: absolute;
+				left: 430px;
+				top: 140px;
+			}
+			#starinputlabel {
+				position: absolute;
+				left: 430px;
+				top: 65px;
+			}
+			#lineinputlabel {
+				position: absolute;
+				left: 430px;
+				top: 65px;
+			}
+			#fileinput {
+				position: absolute;
+				left: 600px;
+				top: 25px;
+			}
+			#fileinputlabel {
+				position: absolute;
+				left: 600px;
+				top: -10px;
+			}
+			#archetypeinput {
+				position: absolute;
+				left: 600px;
+				top: 50px;
+				width: 200px;
+			}
+			#archetypeinputbtn {
+				position: absolute;
+				left: 920px;
+				top: 50px;
+			}
+			#archetypeinputdropdown {
+				position: absolute;
+				left: 815px;
+				top: 50px;
+				width: 100px;
+			}
+			#textsizeinput {
+				position: absolute;
+				left: 430px;
+				top: 285px;
+			}
+			#titlesizeinput {
+				position: absolute;
+				left: 430px;
+				top: 245px;
+			}
+			#titlesizeinputlabel {
+				position: absolute;
+				left: 430px;
+				top: 208px;
+			}
+			#textsizeinputlabel {
+				position: absolute;
+				left: 430px;
+				top: 250px;
+			}
+			#textoffsetinput {
+				position: absolute;
+				left: 430px;
+				top: 365px;
+			}
+			#titleoffsetinput {
+				position: absolute;
+				left: 430px;
+				top: 325px;
+			}
+			#titleoffsetinputlabel {
+				position: absolute;
+				left: 430px;
+				top: 290px;
+			}
+			#textoffsetinputlabel {
+				position: absolute;
+				left: 430px;
+				top: 330px;
+			}
+			#downloadbtn {
+				position: absolute;
+				top: 575px;
+				font-size: 20px;
+			}
+			textarea {
+				resize: none;
+				outline: none;
+				background: transparent;
+				border: none;
+				overflow: hidden;
+			}
+			#textspacinginputlabel {
+				top: 368px;
+    			position: absolute;
+    			left: 430px;
+			}
+			#textspacinginput {
+				position: absolute;
+    			left: 430px;
+    			top: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">			
+			<img src="/cgtemp/sindiancard.jpg" id="maincard" height="562.5" width="412.5" draggable="false">
+			<p class="shaimus-light card-title" id="title" type="text" contenteditable>Card Title</p>
+			<div class="creature-specific">
+				<img src="/cgtemp/1star.png" class="stars" id="star" height="32" width="320" draggable="false">
+				<p class="shaimus power-health" id="power" contenteditable>100</p>
+				<p class="shaimus power-health" id="health" contenteditable>100</p>
+			</div>
+			<div class="activator-specific">
+				<p class="shaimus acti-text" id="acti-cond" contenteditable>When/Would/After _ ...</p>
+			</div>
+			<p class="shaimus-light card-text-4-lines" id="text" contenteditable>Card Text</p>
+			<img id="art" src="cgtemp/noart.png" class="art-creature" draggable="false">
+			<!--<textarea class="shaimus-light card-text-4-lines" id="text" spellcheck="false" placeholder="Add Your Card Text Here"></textarea>-->
+		</div>		<input type="file" onchange="onFileSelected(event)" id="fileinput">
+		<p id="fileinputlabel">Upload your art!</p>
+		<input id="archetypeinput" type="text" placeholder="Add planet-colored text...">
+		<button id="archetypeinputbtn" onclick="arcTextInput()">Add to card text</button>
+		<select id="archetypeinputdropdown">
+			<option>Sindian</option>
+			<option>Baro</option>
+			<option>Rokah</option>
+			<option>Teklar</option>
+			<option>Sheos</option>
+			<option>Sindell</option>
+			<option>Palicium</option>
+			<option>Gaios</option>
+			<option>No-Planet</option>
+		</select>
+		
+		<div class="activator-specific">
+			<select onchange="lineInput()" id="lineinput">
+				<option>1 Line</option>
+				<option>2 Lines</option>
+				<option>3 Lines</option>
+			</select>
+			<p id="lineinputlabel">How many lines for the activation condition?</p>
+		</div>
+
+		<select id="typeinput" onchange="typeInput()">
+			<option>Creature</option>
+			<option>Resource</option>
+			<option>Permanent Resource</option>
+			<option>Attachment</option>
+			<option>Activator</option>
+		</select>
+		<p id="typeinputlabel">What type is this card?</p>
+
+		<div class="creature-specific">
+			<select onchange="starInput()" id="starinput">
+				<option>1star</option>
+				<option>2star</option>
+				<option>3star</option>
+				<option>4star</option>
+				<option>5star</option>
+				<option>6star</option>
+				<option>7star</option>
+				<option>8star</option>
+				<option>9star</option>
+			</select>
+			<p id="starinputlabel">How many stars does this cost?</p>
+			<select onchange="planetInput()" id="planetinput">
+				<option>Sindian</option>
+				<option>Baro</option>
+				<option>Rokah</option>
+				<option>Teklar</option>
+				<option>Sheos</option>
+				<option>Sindell</option>
+				<option>Palicium</option>
+				<option>Gaios</option>
+				<option>No-Planet</option>
+			</select>
+			<p id="planetinputlabel">Which planet is the creature from?</p>
+		</div>
+
+		<input id="textsizeinput" type="number" value="15" onchange="textSizeInput()">
+		<p id="textsizeinputlabel">Rules text size</p>
+		<input id="titlesizeinput" type="number" value="30" onchange="titleSizeInput()">
+		<p id="titlesizeinputlabel">Title text size</p>
+		<input id="textoffsetinput" type="number" value="456.5" onchange="textOffsetInput()">
+		<p id="textoffsetinputlabel">Rules text vertical offset (WARNING!!! The placeholder does not update as text moves when you change card types)</p>
+		<input id="titleoffsetinput" type="number" value="5" onchange="titleOffsetInput()">
+		<p id="titleoffsetinputlabel">Title vertical offset</p>
+		<input id="textspacinginput" type="number" value="14" onchange="textSpacingInput()">
+		<p id="textspacinginputlabel">Rules text line spacing</p>
+		<button id="downloadbtn" onclick="getScreenshotOfElement()">Download Image</button>
+		<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
