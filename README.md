@@ -1,6 +1,6 @@
 ## Custom Card Maker for Chaos Galaxy
 ### Basic Features
--> Editing text - Click to edit most text on cards, except for the planet on creatures.
+:: Editing text - Click to edit most text on cards, except for the planet on creatures.
 -> Title - The title of the card
 -> Card Text - The rules text of a card
 -> Card Type - The type of a card (Resource, Creature, Attachment, Activator); I'm planning to ideally add Planet soon as well. Changing the value on the dropdown changes the rules text's vertical offset and the main card's image. It also removes elements specific card types (ex: removes power and health text when not on creature or the activation condition text when not on an activator).
