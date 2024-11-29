@@ -16,7 +16,12 @@ function toggleCreature(style_) {
 
 function starInput() {
 	var stars = document.getElementById("starinput").value;
-	document.getElementById("star").src = `cgtemp/${stars}.png`
+	document.getElementById("star").src = `cgtemp/${stars}.png`;
+	if (stars == "10star") {
+		document.getElementById("star").width = 350;
+	} else {
+		document.getElementById("star").width = 320;
+	}
 }
 
 function typeInput() {
