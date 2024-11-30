@@ -35,7 +35,7 @@ function typeInput() {
 		toggleCreature("none");
 		document.getElementById("maincard").src = `cgtemp/${type.toLowerCase()}.jpg`;
 	}
-	if (type == "Resource" || type == "Attachment" || type == "Permanent Resource") {
+	if (type == "Resource" || type == "Attachment" || type == "Permanent Resource" || type == "Planet") {
 		document.getElementById("text").className = "shaimus-light card-text-res-attach";
 		document.getElementById("ridrare").src = `cgtemp/ridrareresource.png`;
 
