@@ -199,7 +199,8 @@
 			}
 			#maincard {
 				position: absolute;
-				/*height: 50%;
+				/*filter: hue-rotate(90deg);
+				height: 50%;
 				width: 50%;*/
 			}
 			.art-creature {			
@@ -367,11 +368,52 @@
     			left: 430px;
     			top: 400px;
 			}
+			#ridrare{
+				position: absolute;
+			}
+			#ridrareinput {
+				position: absolute;
+				top: 73px;
+				left: 820px;
+			}
+			#ridrareinputlabel {
+				position: absolute;
+				top: 56px;
+    			left: 640px;
+			}
+			.star-inputs {
+				position: absolute;
+				top: 425px;
+				width: 40px;
+			}
+			#starhue {
+				left: 430px;
+			}
+			#starsat {
+				left: 590px;
+			}
+			#starbright {
+				left: 750px;
+			}
+			.star-labels {
+				position: absolute;
+				top: 410px;
+			}
+			#starhuelabel {
+				left: 480px;
+			}
+			#starsatlabel {
+				left: 640px;
+			}
+			#starbrightlabel {
+				left: 800px;
+			}
 		</style>
 	</head>
 	<body>
 		<div id="container">			
 			<img src="cgtemp/sindiancard.jpg" id="maincard" height="562.5" width="412.5" draggable="false">
+			<img src="cgtemp/ridrarecreature.png" id="ridrare" height="562.5" width="412.5" draggable="false">
 			<p class="shaimus-light card-title" id="title" type="text" contenteditable>Card Title</p>
 			<div class="creature-specific">
 				<img src="cgtemp/1star.png" class="stars" id="star" height="32" width="320" draggable="false">
@@ -456,6 +498,14 @@
 		<p id="titleoffsetinputlabel">Title vertical offset</p>
 		<input id="textspacinginput" type="number" value="14" onchange="textSpacingInput()">
 		<p id="textspacinginputlabel">Rules text line spacing</p>
+		<input id="starhue" class="star-inputs" type="number" value="0" onchange="starHue()">
+		<p id="starhuelabel" class="star-labels">Star Hue Rotate</p>
+		<input id="starbright" class="star-inputs" type="number" value="1" onchange="starBright()">
+		<p id="starsatlabel" class="star-labels">Star Saturation</p>
+		<input id="starsat" class="star-inputs" type="number" value="1" onchange="starSat()">
+		<p id="starbrightlabel" class="star-labels">Star Brightness</p>
+		<input type="checkbox" id="ridrareinput" onchange="ridRareInput()">
+		<p id="ridrareinputlabel">Ridiculously Rare Hatching</p>
 		<button id="downloadbtn" onclick="getScreenshotOfElement()">Download Image</button>
 		<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 		<script src="script.js"></script>

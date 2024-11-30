@@ -30,15 +30,21 @@ function typeInput() {
 		toggleCreature("block");
 		document.getElementById("text").className = "shaimus-light card-text-4-lines";
 		document.getElementById("maincard").src = `cgtemp/sindiancard.jpg`;
+		document.getElementById("ridrare").src = `cgtemp/ridrarecreature.png`;
 	} else {
 		toggleCreature("none");
 		document.getElementById("maincard").src = `cgtemp/${type.toLowerCase()}.jpg`;
 	}
 	if (type == "Resource" || type == "Attachment" || type == "Permanent Resource") {
 		document.getElementById("text").className = "shaimus-light card-text-res-attach";
+		document.getElementById("ridrare").src = `cgtemp/ridrareresource.png`;
+
 	}
 	if (type == "Attachment") {
 		document.getElementById("text").style.top = "420px";
+		document.getElementById("ridrare").src = `cgtemp/ridrareattachment.png`;
+
+		
 	} else {
 		document.getElementById("text").style.top = "";
 	}
@@ -48,8 +54,10 @@ function typeInput() {
 		document.getElementById("maincard").src = `cgtemp/activator1 line.jpg`;
 		document.getElementById("acti-cond").className = "shaimus acti-text-1-lines";
 		document.getElementById("art").className = "art-acti-1-lines";
+		document.getElementById("ridrare").src = `cgtemp/ridrareactivator1lines.png`;
 	} else if (type == "Permanent Resource") {
 		document.getElementById("art").className = `art-permanent-resource`;
+		document.getElementById("ridrare").src = `cgtemp/ridrarepermanentresource.png`;
 		toggleActi("none");
 	}
 	else {
@@ -70,6 +78,7 @@ function lineInput() {
 	document.getElementById("text").className = `shaimus-light card-text-acti-${lineno}-lines`;
 	document.getElementById("acti-cond").className = `shaimus acti-text-${lineno}-lines`;
 	document.getElementById("art").className = `art-acti-${lineno}-lines`;
+	document.getElementById("ridrare").src = `cgtemp/ridrareactivator${lineno}lines.png`;
 }
 
 function onFileSelected(event) {
@@ -113,6 +122,29 @@ function textSpacingInput() {
 	document.getElementById("text").style.lineHeight = document.getElementById("textspacinginput").value + "px";
 }
 
+function ridRareInput() {
+	document.getElementById("ridrare").style.display = document.getElementById("ridrareinput").checked ? "block" : "none";
+}
+
+var starhue = 0;
+var starsat = 1;
+var starbright = 1;
+
+function starHue() {
+	starhue = document.getElementById("starhue").value;
+	document.getElementById("star").style.filter = `hue-rotate(${starhue}deg) saturate(${starsat}) brightness(${starbright})`;
+}
+
+function starSat() {
+	starsat = document.getElementById("starsat").value;
+	document.getElementById("star").style.filter = `hue-rotate(${starhue}deg) saturate(${starsat}) brightness(${starbright})`;
+}
+
+function starBright() {
+	starbright = document.getElementById("starbright").value;
+	document.getElementById("star").style.filter = `hue-rotate(${starhue}deg) saturate(${starsat}) brightness(${starbright})`;
+}
+
 function downloadURI(uri, name) {
 	var link = document.createElement("a");
 	link.download = name;
@@ -141,3 +173,4 @@ function getScreenshotOfElement() {
     });
 }
 toggleActi("none");
+document.getElementById("ridrare").style.display = document.getElementById("ridrareinput").checked ? "block" : "none";
