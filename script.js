@@ -19,8 +19,11 @@ function starInput() {
 	document.getElementById("star").src = `cgtemp/${stars}.png`;
 	if (stars == "10star") {
 		document.getElementById("star").width = 350;
+		document.getElementById("starnumber").innerText = stars.split('').slice(0,2).toString().replace(",", "");
 	} else {
 		document.getElementById("star").width = 320;
+		document.getElementById("starnumber").innerText = stars.split('')[0];
+
 	}
 }
 
@@ -143,6 +146,10 @@ function starSat() {
 function starBright() {
 	starbright = document.getElementById("starbright").value;
 	document.getElementById("star").style.filter = `hue-rotate(${starhue}deg) saturate(${starsat}) brightness(${starbright})`;
+}
+
+function rarityInp() {
+	document.getElementById("rarity").innerText = document.getElementById("raritydropdown").value;
 }
 
 function downloadURI(uri, name) {

@@ -203,6 +203,7 @@
 			}
 			#maincard {
 				position: absolute;
+				top: 8px;
 				/*filter: hue-rotate(90deg);
 				height: 50%;
 				width: 50%;*/
@@ -412,6 +413,26 @@
 			#starbrightlabel {
 				left: 800px;
 			}
+			.star-num {
+				position: absolute;
+				top: 510px;
+				left: 45px;
+			}
+			#rarity {
+				position: absolute;
+				top: 510px;
+				left: 160px;
+			}
+			#raritydropdown {
+				position: absolute;
+				left: 430px;
+				top: 450px;
+			}
+			#raritydropdownlabel {
+				position: absolute;
+				left: 560px;
+				top: 435px;
+			}
 		</style>
 	</head>
 	<body>
@@ -423,10 +444,12 @@
 				<img src="cgtemp/1star.png" class="stars" id="star" height="32" width="320" draggable="false">
 				<p class="shaimus power-health" id="power" contenteditable>100</p>
 				<p class="shaimus power-health" id="health" contenteditable>100</p>
+				<p class="shaimus-light star-num" id="starnumber">1</p>
 			</div>
 			<div class="activator-specific">
 				<p class="shaimus acti-text" id="acti-cond" contenteditable>When/Would/After _ ...</p>
 			</div>
+			<p id="rarity" class="shaimus-light">Common</p>
 			<p class="shaimus-light card-text-4-lines" id="text" contenteditable>Card Text</p>
 			<img id="art" src="cgtemp/noart.png" class="art-creature" draggable="false">
 			<!--<textarea class="shaimus-light card-text-4-lines" id="text" spellcheck="false" placeholder="Add Your Card Text Here"></textarea>-->
@@ -496,23 +519,42 @@
 
 		<input id="textsizeinput" type="number" value="15" onchange="textSizeInput()">
 		<p id="textsizeinputlabel">Rules text size</p>
+
 		<input id="titlesizeinput" type="number" value="30" onchange="titleSizeInput()">
 		<p id="titlesizeinputlabel">Title text size</p>
+
 		<input id="textoffsetinput" type="number" value="456.5" onchange="textOffsetInput()">
 		<p id="textoffsetinputlabel">Rules text vertical offset</p>
+
 		<input id="titleoffsetinput" type="number" value="5" onchange="titleOffsetInput()">
 		<p id="titleoffsetinputlabel">Title vertical offset</p>
+
 		<input id="textspacinginput" type="number" value="14" onchange="textSpacingInput()">
 		<p id="textspacinginputlabel">Rules text line spacing</p>
+
 		<input id="starhue" class="star-inputs" type="number" value="0" onchange="starHue()">
 		<p id="starhuelabel" class="star-labels">Star Hue Rotate</p>
+
 		<input id="starbright" class="star-inputs" type="number" value="1" onchange="starBright()">
 		<p id="starsatlabel" class="star-labels">Star Saturation</p>
+
 		<input id="starsat" class="star-inputs" type="number" value="1" onchange="starSat()">
 		<p id="starbrightlabel" class="star-labels">Star Brightness</p>
+
 		<input type="checkbox" id="ridrareinput" onchange="ridRareInput()">
 		<p id="ridrareinputlabel">Ridiculously Rare Hatching</p>
+
+		<select id="raritydropdown" onchange="rarityInp()">
+			<option>Common</option>
+			<option>Rare</option>
+			<option>Really Rare</option>
+			<option>Ridiculously Rare</option>
+			<option>Chaos Beast</option>
+		</select>
+		<p id="raritydropdownlabel">Rarity of the card</p>
+
 		<button id="downloadbtn" onclick="getScreenshotOfElement()">Download Image</button>
+
 		<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 		<script src="script.js"></script>
 	</body>
