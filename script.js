@@ -67,6 +67,16 @@ function typeInput() {
 		toggleActi("none");
 		document.getElementById("art").className = `art-${type.toLowerCase()}`;
 	}
+	if (type == "Activator" || type == "Attachment") {
+		document.getElementById("rarity").style.top = "515px";
+	} else {
+		document.getElementById("rarity").style.top = "";
+	}
+	if (type == "Planet") {
+		document.getElementById("rarity").style.color = "#CCCC";
+	} else {
+		document.getElementById("rarity").style.color = "";
+	}
 }
 
 function planetInput() {
@@ -102,7 +112,7 @@ function onFileSelected(event) {
 function arcTextInput() {
 	var arcplanet = document.getElementById("archetypeinputdropdown").value;
 	var text = document.getElementById("archetypeinput").value;
-	document.getElementById("text").innerHTML += `<span class="shaimus ${arcplanet.toLowerCase()}-rules-text">${text}</span><span>&nbsp;</span>`;
+	document.getElementById("text").innerHTML += `<span class="shaimus ${arcplanet.toLowerCase()}-rules-text" style="letter-spacing: 2px; transform: scaleX(1.2);">${text}</span><span>&nbsp;</span>`;
 }
 
 function textSizeInput() {
