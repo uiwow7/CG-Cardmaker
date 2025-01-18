@@ -40,7 +40,12 @@
 				font-size: 27px;
 				left: 49px;
 			}
-
+			.combiner-plus-text {
+				position: absolute;
+				top: 110px;
+				font-size: 23px;
+				left: 49px;
+			}
 			.power-health {
 				position: absolute;
  			    top: 55px;
@@ -52,6 +57,14 @@
 			.card-text-4-lines {
 				position:absolute;
 				top: 456.5px;
+				left: 48px;
+				font-size: 15px;
+				line-height: 14px;
+				width: 535px;
+			}
+			.card-text-combiner {
+				position:absolute;
+				top: 471px;
 				left: 48px;
 				font-size: 15px;
 				line-height: 14px;
@@ -267,12 +280,29 @@
     			width: 328px;
 			}
 			.art-acti-3-lines {	
+				
 				position: absolute;
     			top: 89px;
     			z-index: 1;
     			left: 49px;
     			height: 328px;
     			width: 329px;
+			}
+			.art-combiner-left-half {				
+				position: absolute;
+    			top: 174px;
+    			z-index: 1;
+    			left: 51px;
+    			height: 304px;
+    			width: 342px;
+			}
+			.art-combiner-right-half {				
+				position: absolute;
+    			top: 174px;
+    			z-index: 1;
+    			left: 35px;
+    			height: 304px;
+    			width: 342px;
 			}
 			#typeinputlabel {
 				position: absolute;
@@ -456,10 +486,11 @@
 			<p class="shaimus-light card-title" id="title" type="text" contenteditable>Card Title</p>
 			<div class="creature-specific">
 				<img src="cgtemp/1star.png" class="stars" id="star" height="32" width="320" draggable="false">
-				<p class="shaimus power-health" id="power" contenteditable>100</p>
-				<p class="shaimus power-health" id="health" contenteditable>100</p>
 				<p class="shaimus-light star-num" id="starnumber">1</p>
 			</div>
+			<p class="shaimus power-health combiner-specific creature-specific" id="power" contenteditable>100</p>
+			<p class="shaimus power-health combiner-specific creature-specific" id="health" contenteditable>100</p>
+			<p class="shaimus-light combiner-plus-text combiner-specific" id="title" type="text" contenteditable>+ Other Half</p>
 			<div class="activator-specific">
 				<p class="shaimus acti-text" id="acti-cond" contenteditable>When/Would/After _ ...</p>
 			</div>
@@ -495,6 +526,8 @@
 
 		<select id="typeinput" onchange="typeInput()">
 			<option>Creature</option>
+			<option>Combiner Right Half</option>
+			<option>Combiner Left Half</option>
 			<option>Resource</option>
 			<option>Permanent Resource</option>
 			<option>Attachment</option>
@@ -502,34 +535,31 @@
 			<option>Planet</option>
 		</select>
 		<p id="typeinputlabel">What type is this card?</p>
-
-		<div class="creature-specific">
-			<select onchange="starInput()" id="starinput">
-				<option>1star</option>
-				<option>2star</option>
-				<option>3star</option>
-				<option>4star</option>
-				<option>5star</option>
-				<option>6star</option>
-				<option>7star</option>
-				<option>8star</option>
-				<option>9star</option>
-				<option>10star</option>
-			</select>
-			<p id="starinputlabel">How many stars does this cost?</p>
-			<select onchange="planetInput()" id="planetinput">
-				<option>Sindian</option>
-				<option>Baro</option>
-				<option>Rokah</option>
-				<option>Teklar</option>
-				<option>Sheos</option>
-				<option>Sindell</option>
-				<option>Palicium</option>
-				<option>Gaios</option>
-				<option>No-Planet</option>
-			</select>
-			<p id="planetinputlabel">Which planet is the creature from?</p>
-		</div>
+		<select onchange="starInput()" id="starinput" class="creature-specific">
+			<option>1star</option>
+			<option>2star</option>
+			<option>3star</option>
+			<option>4star</option>
+			<option>5star</option>
+			<option>6star</option>
+			<option>7star</option>
+			<option>8star</option>
+			<option>9star</option>
+			<option>10star</option>
+		</select>
+		<p id="starinputlabel" class="creature-specific">How many stars does this cost?</p>
+		<select onchange="planetInput()" id="planetinput" class="creature-specific combiner-specific">
+			<option>Sindian</option>
+			<option>Baro</option>
+			<option>Rokah</option>
+			<option>Teklar</option>
+			<option>Sheos</option>
+			<option>Sindell</option>
+			<option>Palicium</option>
+			<option>Gaios</option>
+			<option>No-Planet</option>
+		</select>
+		<p id="planetinputlabel" class="creature-specific combiner-specific">Which planet is the creature from?</p>
 
 		<input id="textsizeinput" type="number" value="15" onchange="textSizeInput()">
 		<p id="textsizeinputlabel">Rules text size</p>

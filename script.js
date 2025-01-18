@@ -14,6 +14,15 @@ function toggleCreature(style_) {
 	}
 }
 
+var combinerSpecific = document.getElementsByClassName("combiner-specific");
+
+function toggleCombiner(style_) {
+	for (let i = 0; i < combinerSpecific.length; i++) {
+		combinerSpecific[i].style.display = style_;
+	}
+}
+
+
 function starInput() {
 	var stars = document.getElementById("starinput").value;
 	document.getElementById("star").src = `cgtemp/${stars}.png`;
@@ -30,12 +39,24 @@ function starInput() {
 function typeInput() {
 	var type = document.getElementById("typeinput").value;
 	if (type == "Creature") {
-		toggleCreature("block");
+		toggleCombiner("none");
+		toggleCreature("inline");
 		document.getElementById("text").className = "shaimus-light card-text-4-lines";
 		document.getElementById("maincard").src = `cgtemp/sindiancard.jpg`;
 		document.getElementById("ridrare").src = `cgtemp/ridrarecreature.png`;
-	} else {
+	} else if (type.includes("Combiner")) {
 		toggleCreature("none");
+		toggleCombiner("inline");
+		if (type == "Combiner Right Half") {
+			document.getElementById("maincard").src = `cgtemp/combiners/${document.getElementById("planetinput").value}right.jpg`;
+		}
+		if (type == "Combiner Left Half") {
+			document.getElementById("maincard").src = `cgtemp/combiners/${document.getElementById("planetinput").value}left.jpg`;
+		}
+	}
+	else {
+		toggleCreature("none");
+		toggleCombiner("none");
 		document.getElementById("maincard").src = `cgtemp/${type.toLowerCase()}.jpg`;
 	}
 	if (type == "Resource" || type == "Attachment" || type == "Permanent Resource" || type == "Planet") {
@@ -52,7 +73,7 @@ function typeInput() {
 		document.getElementById("text").style.top = "";
 	}
 	if (type == "Activator") {
-		toggleActi("block");
+		toggleActi("inline");
 		document.getElementById("text").className = "shaimus-light card-text-acti-1-lines";
 		document.getElementById("maincard").src = `cgtemp/activator1 line.jpg`;
 		document.getElementById("acti-cond").className = "shaimus acti-text-1-lines";
@@ -61,6 +82,17 @@ function typeInput() {
 	} else if (type == "Permanent Resource") {
 		document.getElementById("art").className = `art-permanent-resource`;
 		document.getElementById("ridrare").src = `cgtemp/ridrarepermanentresource.png`;
+		toggleActi("none");
+	} else if (type == "Combiner Left Half") {
+		document.getElementById("art").className = `art-combiner-left-half`;
+		document.getElementById("ridrare").src = `COMBINERS DONT GET THAT`;
+		document.getElementById("text").className = "shaimus-light card-text-combiner";
+		toggleActi("none");
+	} else if (type == "Combiner Right Half") {
+		document.getElementById("art").className = `art-combiner-right-half`;
+		document.getElementById("ridrare").src = `COMBINERS DONT GET THAT`;
+		document.getElementById("text").className = "shaimus-light card-text-combiner";
+
 		toggleActi("none");
 	}
 	else {
@@ -77,11 +109,22 @@ function typeInput() {
 	} else {
 		document.getElementById("rarity").style.color = "";
 	}
+	// if (type == "Creature") {
+	// 	toggleCreature("inline");
+	// }
 }
 
 function planetInput() {
 	var planet = document.getElementById("planetinput").value;
-	document.getElementById("maincard").src = `cgtemp/${planet.toLowerCase()}card.jpg`;
+	if (document.getElementById("typeinput").value == "Creature") {
+		document.getElementById("maincard").src = `cgtemp/${planet.toLowerCase()}card.jpg`;
+	} else if (document.getElementById("typeinput").value == "Combiner Left Half") {
+		document.getElementById("maincard").src = `cgtemp/combiners/${planet.toLowerCase()}left.jpg`;
+	} else if (document.getElementById("typeinput").value == "Combiner Right Half") {
+		document.getElementById("maincard").src = `cgtemp/combiners/${planet.toLowerCase()}right.jpg`;
+	} else {
+		console.log("ERROR")
+	}
 }
 
 function lineInput() {
@@ -136,7 +179,7 @@ function textSpacingInput() {
 }
 
 function ridRareInput() {
-	document.getElementById("ridrare").style.display = document.getElementById("ridrareinput").checked ? "block" : "none";
+	document.getElementById("ridrare").style.display = document.getElementById("ridrareinput").checked ? "inline" : "none";
 }
 
 var starhue = 0;
@@ -190,4 +233,6 @@ function getScreenshotOfElement() {
     });
 }
 toggleActi("none");
-document.getElementById("ridrare").style.display = document.getElementById("ridrareinput").checked ? "block" : "none";
+toggleCombiner("none");
+toggleCreature("inline");
+document.getElementById("ridrare").style.display = document.getElementById("ridrareinput").checked ? "inline" : "none";
