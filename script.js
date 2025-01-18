@@ -48,10 +48,10 @@ function typeInput() {
 		toggleCreature("none");
 		toggleCombiner("inline");
 		if (type == "Combiner Right Half") {
-			document.getElementById("maincard").src = `cgtemp/combiners/${document.getElementById("planetinput").value}right.jpg`;
+			document.getElementById("maincard").src = `cgtemp/combiners/${document.getElementById("planetinput").value.toLowerCase()}right.jpg`;
 		}
 		if (type == "Combiner Left Half") {
-			document.getElementById("maincard").src = `cgtemp/combiners/${document.getElementById("planetinput").value}left.jpg`;
+			document.getElementById("maincard").src = `cgtemp/combiners/${document.getElementById("planetinput").value.toLowerCase()}left.jpg`;
 		}
 	}
 	else {
