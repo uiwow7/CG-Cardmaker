@@ -48,10 +48,12 @@ function typeInput() {
 		toggleCreature("none");
 		toggleCombiner("inline");
 		if (type == "Combiner Right Half") {
+			console.log(document.getElementById("planetinput").value.toLowerCase());
 			document.getElementById("maincard").src = `cgtemp/combiners/${document.getElementById("planetinput").value.toLowerCase()}right.jpg`;
 		}
 		if (type == "Combiner Left Half") {
 			document.getElementById("maincard").src = `cgtemp/combiners/${document.getElementById("planetinput").value.toLowerCase()}left.jpg`;
+			console.log(document.getElementById("planetinput").value.toLowerCase());
 		}
 	}
 	else {
@@ -119,9 +121,11 @@ function planetInput() {
 	if (document.getElementById("typeinput").value == "Creature") {
 		document.getElementById("maincard").src = `cgtemp/${planet.toLowerCase()}card.jpg`;
 	} else if (document.getElementById("typeinput").value == "Combiner Left Half") {
+		console.log(planet);
 		document.getElementById("maincard").src = `cgtemp/combiners/${planet.toLowerCase()}left.jpg`;
 	} else if (document.getElementById("typeinput").value == "Combiner Right Half") {
 		document.getElementById("maincard").src = `cgtemp/combiners/${planet.toLowerCase()}right.jpg`;
+		console.log(planet);
 	} else {
 		console.log("ERROR")
 	}
