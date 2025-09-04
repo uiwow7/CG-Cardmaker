@@ -28,7 +28,7 @@ function starInput() {
 	document.getElementById("star").src = `cgtemp/${stars}.png`;
 	if (stars == "10star") {
 		document.getElementById("star").width = 350;
-		document.getElementById("starnumber").innerText = stars.split('').slice(0,2).toString().replace(",", "");
+		document.getElementById("starnumber").innerText = stars.split('').slice(0, 2).toString().replace(",", "");
 	} else {
 		document.getElementById("star").width = 320;
 		document.getElementById("starnumber").innerText = stars.split('')[0];
@@ -61,16 +61,16 @@ function typeInput() {
 		toggleCombiner("none");
 		document.getElementById("maincard").src = `cgtemp/${type.toLowerCase()}.jpg`;
 	}
-	if (type == "Resource" || type == "Attachment" || type == "Permanent Resource" || type == "Planet") {
+	if (type == "Resource" || type == "Attachment" || type == "Moon" || type == "Permanent Resource" || type == "Planet") {
 		document.getElementById("text").className = "shaimus-light card-text-res-attach";
 		document.getElementById("ridrare").src = `cgtemp/ridrareresource.png`;
 
 	}
-	if (type == "Attachment") {
+	if (type == "Attachment" || type == "Moon") {
 		document.getElementById("text").style.top = "420px";
 		document.getElementById("ridrare").src = `cgtemp/ridrareattachment.png`;
 
-		
+
 	} else {
 		document.getElementById("text").style.top = "";
 	}
@@ -101,7 +101,7 @@ function typeInput() {
 		toggleActi("none");
 		document.getElementById("art").className = `art-${type.toLowerCase()}`;
 	}
-	if (type == "Activator" || type == "Attachment") {
+	if (type == "Activator" || type == "Attachment" || type == "Moon") {
 		document.getElementById("rarity").style.top = "515px";
 	} else {
 		document.getElementById("rarity").style.top = "";
@@ -144,15 +144,15 @@ function lineInput() {
 function onFileSelected(event) {
 	var selectedFile = event.target.files[0];
 	var reader = new FileReader();
-  
+
 	var imgtag = document.getElementById("art");
 	imgtag.title = selectedFile.name;
 	imgtag.crossOrigin = "anonymous";
 
-	reader.onload = function(event) {
-	  imgtag.src = event.target.result;
+	reader.onload = function (event) {
+		imgtag.src = event.target.result;
 	};
-  
+
 	reader.readAsDataURL(selectedFile);
 }
 
@@ -164,6 +164,7 @@ function arcTextInput() {
 
 function textSizeInput() {
 	document.getElementById("text").style.fontSize = document.getElementById("textsizeinput").value + "px";
+	document.getElementById("text").style.fontSize = (Number(document.getElementById("textsizeinput").value) - 1).toString() + "px";
 }
 
 function titleSizeInput() {
@@ -221,20 +222,20 @@ function downloadURI(uri, name) {
 
 function getScreenshotOfElement() {
 	console.log("true start")
-    html2canvas(document.getElementById("container"), { width: 412.5, height: 562.5, useCORS: true, taintTest: false, allowTaint: false }).then(function(canvas) {
-			var width = canvas.width;
-			var height = canvas.height;
-            var context = canvas.getContext('2d');
-            var imageData = context.getImageData(0, 0, width, height).data;
-            var outputCanvas = document.createElement('canvas');
-            var outputContext = outputCanvas.getContext('2d');
-            outputCanvas.width = width;
-            outputCanvas.height = height;
-            var idata = outputContext.createImageData(width, height);
-            idata.data.set(imageData);
-            outputContext.putImageData(idata, 0, 0);
-            downloadURI(outputCanvas.toDataURL(), document.getElementById("title").innerText);
-    });
+	html2canvas(document.getElementById("container"), { width: 412.5, height: 562.5, useCORS: true, taintTest: false, allowTaint: false }).then(function (canvas) {
+		var width = canvas.width;
+		var height = canvas.height;
+		var context = canvas.getContext('2d');
+		var imageData = context.getImageData(0, 0, width, height).data;
+		var outputCanvas = document.createElement('canvas');
+		var outputContext = outputCanvas.getContext('2d');
+		outputCanvas.width = width;
+		outputCanvas.height = height;
+		var idata = outputContext.createImageData(width, height);
+		idata.data.set(imageData);
+		outputContext.putImageData(idata, 0, 0);
+		downloadURI(outputCanvas.toDataURL(), document.getElementById("title").innerText);
+	});
 }
 toggleActi("none");
 toggleCombiner("none");

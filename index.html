@@ -1,605 +1,674 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<style>
-			p {
-				color: #FFFF;
-			}
-			html {
-				height: 100%;
-				width: 100%;
-				background-image: url(bgdark.jpg);
-  				overflow-y: hidden;
-				background-size: 100%;
-			}
 
-			@font-face {
-					font-family: 'Shaimus'; /*a name to be used later*/
-					src: url('Shaimus-Bold.otf'); /*URL to font*/
-			}
-			@font-face {
-					font-family: 'Shaimus-Light'; /*a name to be used later*/
-					src: url('ShaimusCleanLight.otf'); /*URL to font*/
-			}
+<head>
+	<style>
+		p {
+			color: #FFFF;
+		}
 
-			.shaimus {
-				font-family: 'Shaimus';
-				color:#000000;
-			}
-			.shaimus-light {
-				font-family: 'Shaimus-Light';
-				letter-spacing: 0px;
-				transform: scaleX(0.8);
-				transform-origin: left;
-				color:#000000;
-			}
+		html {
+			height: 100%;
+			width: 100%;
+			background-image: url(bgdark.jpg);
+			overflow-y: hidden;
+			background-size: 100%;
+		}
 
-			.card-title {
-				position: absolute;
-				top: 11px;
-				font-size: 27px;
-				left: 49px;
-			}
-			.combiner-plus-text {
-				position: absolute;
-				top: 110px;
-				font-size: 23px;
-				left: 49px;
-			}
-			.power-health {
-				position: absolute;
- 			    top: 58px;
-			    font-size: 28px;
-  			    text-align: center;
-			    width: 48px;
-			}
+		@font-face {
+			font-family: 'Shaimus';
+			/*a name to be used later*/
+			src: url('Shaimus-Bold.otf');
+			/*URL to font*/
+		}
 
-			.card-text-4-lines {
-				position:absolute;
-				top: 456.5px;
-				left: 48px;
-				font-size: 15px;
-				line-height: 14px;
-				width: 535px;
-			}
-			.card-text-combiner {
-				position:absolute;
-				top: 471px;
-				left: 48px;
-				font-size: 15px;
-				line-height: 14px;
-				width: 535px;
-			}
+		@font-face {
+			font-family: 'Shaimus-Light';
+			/*a name to be used later*/
+			src: url('ShaimusCleanLight.otf');
+			/*URL to font*/
+		}
 
-			.card-text-res-attach {
-				position:absolute;
-				top: 415.5px;
-				left: 47.5px;
-				font-size: 15px;
-				line-height: 14px;
-			}
+		.shaimus {
+			font-family: 'Shaimus';
+			color: #000000;
+		}
 
-			.card-text-acti-2-lines {
-				position:absolute;
-				top: 450px;
-				left: 47.5px;
-				font-size: 15px;
-				line-height: 14px;
-			}
-			.card-text-acti-1-lines {
-				position:absolute;
-				top: 440px;
-				left: 42.5px;
-				font-size: 15px;
-				line-height: 14px;
-			}
-			.card-text-acti-3-lines {
-				position:absolute;
-				top: 465px;
-				left: 44.5px;
-				font-size: 15px;
-				line-height: 14px;
-			}
-			
-			.stars {
-				position: absolute;
-				top: 128px;
-				left: 40px;
-			}
+		.shaimus-light {
+			font-family: 'Shaimus-Light';
+			letter-spacing: 0px;
+			transform: scaleX(0.8);
+			transform-origin: left;
+			color: #000000;
+		}
 
-			.planet-text {
-				position: absolute;
-				top: 62.5px;
-				left: 177.5px;
-				font-size: 22.5px;
-				text-align: center;
-			}
+		.card-title {
+			position: absolute;
+			top: 11px;
+			font-size: 27px;
+			left: 49px;
+		}
 
-			.rokah-rules-text {
-				color: #dc8f67;
-			}
+		.combiner-plus-text {
+			position: absolute;
+			top: 110px;
+			font-size: 23px;
+			left: 49px;
+		}
 
-			.sheos-rules-text {
-				color: #af1916;
-			}
-			
-			.baro-rules-text {
-				color: #423e3b;
-			}
+		.power-health {
+			position: absolute;
+			top: 58px;
+			font-size: 28px;
+			text-align: center;
+			width: 48px;
+		}
 
-			.sindell-rules-text {
-				color: #3b235a;
-			}
+		.card-text-4-lines {
+			position: absolute;
+			top: 456.5px;
+			left: 48px;
+			font-size: 15px;
+			line-height: 14px;
+			width: 535px;
+		}
 
-			.sindian-rules-text {
-				color: #bca001;
-			}
+		.card-text-combiner {
+			position: absolute;
+			top: 471px;
+			left: 48px;
+			font-size: 15px;
+			line-height: 14px;
+			width: 535px;
+		}
 
-			.teklar-rules-text {
-				color: #01a799;
-			}
+		.card-text-res-attach {
+			position: absolute;
+			top: 415.5px;
+			left: 47.5px;
+			font-size: 15px;
+			line-height: 14px;
+		}
 
-			.gaios-rules-text {
-				color: #497603;
-			}
+		.card-text-acti-2-lines {
+			position: absolute;
+			top: 450px;
+			left: 47.5px;
+			font-size: 15px;
+			line-height: 14px;
+		}
 
-			.palicium-rules-text {
-				color: #0b4d6f;
-			}
+		.card-text-acti-1-lines {
+			position: absolute;
+			top: 440px;
+			left: 42.5px;
+			font-size: 15px;
+			line-height: 14px;
+		}
 
-			.no-planet-rules-text {
-				color: #555555;
-			}
+		.card-text-acti-3-lines {
+			position: absolute;
+			top: 465px;
+			left: 44.5px;
+			font-size: 15px;
+			line-height: 14px;
+		}
 
-			.black-rules-text {
-				color: #000000;
-			}
+		.stars {
+			position: absolute;
+			top: 128px;
+			left: 40px;
+		}
 
-			.acti-text-2-lines {
-    			top: 415.5px;
-    			position: absolute;
-    			font-size: 14px;
-    			color: #c1b3c8;
-    			left: 45.5px;
-    			line-height: 14px;
-			}
+		.planet-text {
+			position: absolute;
+			top: 62.5px;
+			left: 177.5px;
+			font-size: 22.5px;
+			text-align: center;
+		}
 
-			.acti-text-1-lines {
-    			top: 419px;
-    			position: absolute;
-    			font-size: 14px;
-    			color: #c1b3c8;
-    			left: 45.5px;
-    			line-height: 14px;
-			}
+		.rokah-rules-text {
+			color: #dc8f67;
+		}
 
-			.acti-text-3-lines {
-    			top: 417.5px;
-    			position: absolute;
-    			font-size: 14px;
-    			color: #c1b3c8;
-    			left: 45.5px;
-    			line-height: 14px;
-			}
+		.sheos-rules-text {
+			color: #af1916;
+		}
 
-			.invis {
-				display: none;
-			}
+		.baro-rules-text {
+			color: #423e3b;
+		}
 
-			#power {
-				left: 115px;
-			}
-			#health {
-				left: 332.5px;
-			}
-			#typeinput {
-				position: absolute;
-				left: 430px;
-				top: 25px;
-				width: 150px;
-				height: 50px;
-				font-size: 25px;
-			}
-			#planetinput {
-				position: absolute;
-				left: 430px;
-				top: 175px;
-				width: 150px;
-				height: 50px;
-				font-size: 25px;
-			}
-			#starinput {
-				position: absolute;
-				left: 430px;
-				top: 100px;
-				width: 100px;
-				height: 50px;
-				font-size: 25px;
-			}
-			#lineinput {
-				position: absolute;
-				left: 430px;
-				top: 100px;
-				width: 110px;
-				height: 50px;
-				font-size: 25px;
-			}
-			#maincard {
-				position: absolute;
-				top: 8px;
-				/*filter: hue-rotate(90deg);
+		.sindell-rules-text {
+			color: #3b235a;
+		}
+
+		.sindian-rules-text {
+			color: #bca001;
+		}
+
+		.teklar-rules-text {
+			color: #01a799;
+		}
+
+		.gaios-rules-text {
+			color: #497603;
+		}
+
+		.palicium-rules-text {
+			color: #0b4d6f;
+		}
+
+		.no-planet-rules-text {
+			color: #555555;
+		}
+
+		.black-rules-text {
+			color: #000000;
+		}
+
+		.acti-text-2-lines {
+			top: 415.5px;
+			position: absolute;
+			font-size: 14px;
+			color: #c1b3c8;
+			left: 45.5px;
+			line-height: 14px;
+		}
+
+		.acti-text-1-lines {
+			top: 419px;
+			position: absolute;
+			font-size: 14px;
+			color: #c1b3c8;
+			left: 45.5px;
+			line-height: 14px;
+		}
+
+		.acti-text-3-lines {
+			top: 417.5px;
+			position: absolute;
+			font-size: 14px;
+			color: #c1b3c8;
+			left: 45.5px;
+			line-height: 14px;
+		}
+
+		.invis {
+			display: none;
+		}
+
+		#power {
+			left: 115px;
+		}
+
+		#health {
+			left: 332.5px;
+		}
+
+		#typeinput {
+			position: absolute;
+			left: 430px;
+			top: 25px;
+			width: 150px;
+			height: 50px;
+			font-size: 25px;
+		}
+
+		#planetinput {
+			position: absolute;
+			left: 430px;
+			top: 175px;
+			width: 150px;
+			height: 50px;
+			font-size: 25px;
+		}
+
+		#starinput {
+			position: absolute;
+			left: 430px;
+			top: 100px;
+			width: 100px;
+			height: 50px;
+			font-size: 25px;
+		}
+
+		#lineinput {
+			position: absolute;
+			left: 430px;
+			top: 100px;
+			width: 110px;
+			height: 50px;
+			font-size: 25px;
+		}
+
+		#maincard {
+			position: absolute;
+			top: 8px;
+			/*filter: hue-rotate(90deg);
 				height: 50%;
 				width: 50%;*/
-			}
-			.art-creature {			
-				position: absolute;
-    			top: 166px;
-    			z-index: 1;
-    			left: 51px;
-    			height: 296px;
-    			width: 325px;
-			}
-			.art-resource {				
-				position: absolute;
-    			top: 92px;
-    			z-index: 1;
-    			left: 51px;
-    			height: 325px;
-    			width: 327px;
-			}
-			.art-permanent-resource {			
-				position: absolute;
-    			top: 92px;
-    			z-index: 1;
-    			left: 51px;
-    			height: 325px;
-    			width: 327px;
-			}
-			.art-attachment {			
-				position: absolute;
-    			top: 89px;
-    			z-index: 1;
-    			left: 49px;
-    			height: 330px;
-    			width: 329px;
-			}
-			.art-acti-1-lines {
-    			position: absolute;
-    			top: 87px;
-    			z-index: 1;
-    			left: 48px;
-    			height: 332px;
-    			width: 333px;
-			}
-			.art-acti-2-lines {
-    			position: absolute;
-    			top: 90px;
-    			z-index: 1;
-    			left: 50px;
-    			height: 327px;
-    			width: 328px;
-			}
-			.art-acti-3-lines {	
-				
-				position: absolute;
-    			top: 89px;
-    			z-index: 1;
-    			left: 49px;
-    			height: 328px;
-    			width: 329px;
-			}
-			.art-combiner-left-half {				
-				position: absolute;
-    			top: 174px;
-    			z-index: 1;
-    			left: 51px;
-    			height: 304px;
-    			width: 342px;
-			}
-			.art-combiner-right-half {				
-				position: absolute;
-    			top: 174px;
-    			z-index: 1;
-    			left: 35px;
-    			height: 304px;
-    			width: 342px;
-			}
-			#typeinputlabel {
-				position: absolute;
-				left: 430px;
-				top: -10px;
-			}
-			#planetinputlabel {
-				position: absolute;
-				left: 430px;
-				top: 140px;
-			}
-			#starinputlabel {
-				position: absolute;
-				left: 430px;
-				top: 65px;
-			}
-			#lineinputlabel {
-				position: absolute;
-				left: 430px;
-				top: 65px;
-			}
-			#fileinput {
-				position: absolute;
-				left: 600px;
-				top: 25px;
-			}
-			#fileinputlabel {
-				position: absolute;
-				left: 600px;
-				top: -10px;
-			}
-			#archetypeinput {
-				position: absolute;
-				left: 600px;
-				top: 50px;
-				width: 200px;
-			}
-			#archetypeinputbtn {
-				position: absolute;
-				left: 920px;
-				top: 50px;
-			}
-			#archetypeinputdropdown {
-				position: absolute;
-				left: 815px;
-				top: 50px;
-				width: 100px;
-			}
-			#textsizeinput {
-				position: absolute;
-				left: 430px;
-				top: 285px;
-			}
-			#titlesizeinput {
-				position: absolute;
-				left: 430px;
-				top: 245px;
-			}
-			#titlesizeinputlabel {
-				position: absolute;
-				left: 430px;
-				top: 208px;
-			}
-			#textsizeinputlabel {
-				position: absolute;
-				left: 430px;
-				top: 250px;
-			}
-			#textoffsetinput {
-				position: absolute;
-				left: 430px;
-				top: 365px;
-			}
-			#titleoffsetinput {
-				position: absolute;
-				left: 430px;
-				top: 325px;
-			}
-			#titleoffsetinputlabel {
-				position: absolute;
-				left: 430px;
-				top: 290px;
-			}
-			#textoffsetinputlabel {
-				position: absolute;
-				left: 430px;
-				top: 330px;
-			}
-			#downloadbtn {
-				position: absolute;
-				top: 575px;
-				font-size: 20px;
-			}
-			textarea {
-				resize: none;
-				outline: none;
-				background: transparent;
-				border: none;
-				overflow: hidden;
-			}
-			#textspacinginputlabel {
-				top: 368px;
-    			position: absolute;
-    			left: 430px;
-			}
-			#textspacinginput {
-				position: absolute;
-    			left: 430px;
-    			top: 400px;
-			}
-			#ridrare{
-				position: absolute;
-			}
-			#ridrareinput {
-				position: absolute;
-				top: 73px;
-				left: 820px;
-			}
-			#ridrareinputlabel {
-				position: absolute;
-				top: 56px;
-    			left: 640px;
-			}
-			.star-inputs {
-				position: absolute;
-				top: 425px;
-				width: 40px;
-			}
-			#starhue {
-				left: 430px;
-			}
-			#starsat {
-				left: 590px;
-			}
-			#starbright {
-				left: 750px;
-			}
-			.star-labels {
-				position: absolute;
-				top: 410px;
-			}
-			#starhuelabel {
-				left: 480px;
-			}
-			#starsatlabel {
-				left: 640px;
-			}
-			#starbrightlabel {
-				left: 800px;
-			}
-			.star-num {
-				position: absolute;
-				top: 510px;
-				left: 45px;
-			}
-			#rarity {
-				position: absolute;
-				top: 510px;
-				left: 230px;
-				text-align: right;
-    			width: 148px;
-				transform-origin: right;
-			}
-			#raritydropdown {
-				position: absolute;
-				left: 430px;
-				top: 450px;
-			}
-			#raritydropdownlabel {
-				position: absolute;
-				left: 560px;
-				top: 435px;
-			}
-		</style>
-	</head>
-	<body>
-		<!--img id="bg" src="bg.jpg"-->
-		<div id="container">			
-			<img src="cgtemp/sindiancard.jpg" id="maincard" height="562.5" width="412.5" draggable="false">
-			<img src="cgtemp/ridrarecreature.png" id="ridrare" height="562.5" width="412.5" draggable="false">
-			<p class="shaimus-light card-title" id="title" type="text" contenteditable>Card Title</p>
-			<div class="creature-specific">
-				<img src="cgtemp/1star.png" class="stars" id="star" height="32" width="320" draggable="false">
-				<p class="shaimus-light star-num" id="starnumber">1</p>
-			</div>
-			<p class="shaimus power-health combiner-specific creature-specific" id="power" contenteditable>100</p>
-			<p class="shaimus power-health combiner-specific creature-specific" id="health" contenteditable>100</p>
-			<p class="shaimus-light combiner-plus-text combiner-specific" id="title" type="text" contenteditable>+ Other Half</p>
-			<div class="activator-specific">
-				<p class="shaimus acti-text" id="acti-cond" contenteditable>When/Would/After _ ...</p>
-			</div>
-			<p id="rarity" class="shaimus-light">Common</p>
-			<p class="shaimus-light card-text-4-lines" id="text" contenteditable>Card Text</p>
-			<img id="art" src="cgtemp/noart.png" class="art-creature" draggable="false">
-			<!--<textarea class="shaimus-light card-text-4-lines" id="text" spellcheck="false" placeholder="Add Your Card Text Here"></textarea>-->
-		</div>		<input type="file" onchange="onFileSelected(event)" id="fileinput">
-		<p id="fileinputlabel">Upload your art!</p>
-		<input id="archetypeinput" type="text" placeholder="Add planet-colored text...">
-		<button id="archetypeinputbtn" onclick="arcTextInput()">Add to card text</button>
-		<select id="archetypeinputdropdown">
-			<option>Sindian</option>
-			<option>Baro</option>
-			<option>Rokah</option>
-			<option>Teklar</option>
-			<option>Sheos</option>
-			<option>Sindell</option>
-			<option>Palicium</option>
-			<option>Gaios</option>
-			<option>No-Planet</option>
-			<option>Black</option>
-		</select>
-		
-		<div class="activator-specific">
-			<select onchange="lineInput()" id="lineinput">
-				<option>1 Line</option>
-				<option>2 Lines</option>
-				<option>3 Lines</option>
-			</select>
-			<p id="lineinputlabel">How many lines for the activation condition?</p>
+		}
+
+		.art-creature {
+			position: absolute;
+			top: 166px;
+			z-index: 1;
+			left: 51px;
+			height: 296px;
+			width: 325px;
+		}
+
+		.art-resource {
+			position: absolute;
+			top: 92px;
+			z-index: 1;
+			left: 51px;
+			height: 325px;
+			width: 327px;
+		}
+
+		.art-permanent-resource {
+			position: absolute;
+			top: 92px;
+			z-index: 1;
+			left: 51px;
+			height: 325px;
+			width: 327px;
+		}
+
+		.art-attachment {
+			position: absolute;
+			top: 89px;
+			z-index: 1;
+			left: 49px;
+			height: 330px;
+			width: 329px;
+		}
+
+		.art-acti-1-lines {
+			position: absolute;
+			top: 87px;
+			z-index: 1;
+			left: 48px;
+			height: 332px;
+			width: 333px;
+		}
+
+		.art-acti-2-lines {
+			position: absolute;
+			top: 90px;
+			z-index: 1;
+			left: 50px;
+			height: 327px;
+			width: 328px;
+		}
+
+		.art-acti-3-lines {
+
+			position: absolute;
+			top: 89px;
+			z-index: 1;
+			left: 49px;
+			height: 328px;
+			width: 329px;
+		}
+
+		.art-combiner-left-half {
+			position: absolute;
+			top: 174px;
+			z-index: 1;
+			left: 51px;
+			height: 304px;
+			width: 342px;
+		}
+
+		.art-combiner-right-half {
+			position: absolute;
+			top: 174px;
+			z-index: 1;
+			left: 35px;
+			height: 304px;
+			width: 342px;
+		}
+
+		#typeinputlabel {
+			position: absolute;
+			left: 430px;
+			top: -10px;
+		}
+
+		#planetinputlabel {
+			position: absolute;
+			left: 430px;
+			top: 140px;
+		}
+
+		#starinputlabel {
+			position: absolute;
+			left: 430px;
+			top: 65px;
+		}
+
+		#lineinputlabel {
+			position: absolute;
+			left: 430px;
+			top: 65px;
+		}
+
+		#fileinput {
+			position: absolute;
+			left: 600px;
+			top: 25px;
+		}
+
+		#fileinputlabel {
+			position: absolute;
+			left: 600px;
+			top: -10px;
+		}
+
+		#archetypeinput {
+			position: absolute;
+			left: 600px;
+			top: 50px;
+			width: 200px;
+		}
+
+		#archetypeinputbtn {
+			position: absolute;
+			left: 920px;
+			top: 50px;
+		}
+
+		#archetypeinputdropdown {
+			position: absolute;
+			left: 815px;
+			top: 50px;
+			width: 100px;
+		}
+
+		#textsizeinput {
+			position: absolute;
+			left: 430px;
+			top: 285px;
+		}
+
+		#titlesizeinput {
+			position: absolute;
+			left: 430px;
+			top: 245px;
+		}
+
+		#titlesizeinputlabel {
+			position: absolute;
+			left: 430px;
+			top: 208px;
+		}
+
+		#textsizeinputlabel {
+			position: absolute;
+			left: 430px;
+			top: 250px;
+		}
+
+		#textoffsetinput {
+			position: absolute;
+			left: 430px;
+			top: 365px;
+		}
+
+		#titleoffsetinput {
+			position: absolute;
+			left: 430px;
+			top: 325px;
+		}
+
+		#titleoffsetinputlabel {
+			position: absolute;
+			left: 430px;
+			top: 290px;
+		}
+
+		#textoffsetinputlabel {
+			position: absolute;
+			left: 430px;
+			top: 330px;
+		}
+
+		#downloadbtn {
+			position: absolute;
+			top: 575px;
+			font-size: 20px;
+		}
+
+		textarea {
+			resize: none;
+			outline: none;
+			background: transparent;
+			border: none;
+			overflow: hidden;
+		}
+
+		#textspacinginputlabel {
+			top: 368px;
+			position: absolute;
+			left: 430px;
+		}
+
+		#textspacinginput {
+			position: absolute;
+			left: 430px;
+			top: 400px;
+		}
+
+		#ridrare {
+			position: absolute;
+		}
+
+		#ridrareinput {
+			position: absolute;
+			top: 73px;
+			left: 820px;
+		}
+
+		#ridrareinputlabel {
+			position: absolute;
+			top: 56px;
+			left: 640px;
+		}
+
+		.star-inputs {
+			position: absolute;
+			top: 425px;
+			width: 40px;
+		}
+
+		#starhue {
+			left: 430px;
+		}
+
+		#starsat {
+			left: 590px;
+		}
+
+		#starbright {
+			left: 750px;
+		}
+
+		.star-labels {
+			position: absolute;
+			top: 410px;
+		}
+
+		#starhuelabel {
+			left: 480px;
+		}
+
+		#starsatlabel {
+			left: 640px;
+		}
+
+		#starbrightlabel {
+			left: 800px;
+		}
+
+		.star-num {
+			position: absolute;
+			top: 510px;
+			left: 45px;
+		}
+
+		#rarity {
+			position: absolute;
+			top: 510px;
+			left: 230px;
+			text-align: right;
+			width: 148px;
+			transform-origin: right;
+		}
+
+		#raritydropdown {
+			position: absolute;
+			left: 430px;
+			top: 450px;
+		}
+
+		#raritydropdownlabel {
+			position: absolute;
+			left: 560px;
+			top: 435px;
+		}
+	</style>
+</head>
+
+<body>
+	<!--img id="bg" src="bg.jpg"-->
+	<div id="container">
+		<img src="cgtemp/sindiancard.jpg" id="maincard" height="562.5" width="412.5" draggable="false">
+		<img src="cgtemp/ridrarecreature.png" id="ridrare" height="562.5" width="412.5" draggable="false">
+		<p class="shaimus-light card-title" id="title" type="text" contenteditable>Card Title</p>
+		<div class="creature-specific">
+			<img src="cgtemp/1star.png" class="stars" id="star" height="32" width="320" draggable="false">
+			<p class="shaimus-light star-num" id="starnumber">1</p>
 		</div>
+		<p class="shaimus power-health combiner-specific creature-specific" id="power" contenteditable>100</p>
+		<p class="shaimus power-health combiner-specific creature-specific" id="health" contenteditable>100</p>
+		<p class="shaimus-light combiner-plus-text combiner-specific" id="title" type="text" contenteditable>+ Other
+			Half</p>
+		<div class="activator-specific">
+			<p class="shaimus acti-text" id="acti-cond" contenteditable>When/Would/After _ ...</p>
+		</div>
+		<p id="rarity" class="shaimus-light">Common</p>
+		<p class="shaimus-light card-text-4-lines" id="text" contenteditable>Card Text</p>
+		<img id="art" src="cgtemp/noart.png" class="art-creature" draggable="false">
+		<!--<textarea class="shaimus-light card-text-4-lines" id="text" spellcheck="false" placeholder="Add Your Card Text Here"></textarea>-->
+	</div>
+	<input type="file" onchange="onFileSelected(event)" id="fileinput">
+	<p id="fileinputlabel">Upload your art!</p>
+	<input id="archetypeinput" type="text" placeholder="Add planet-colored text...">
+	<button id="archetypeinputbtn" onclick="arcTextInput()">Add to card text</button>
+	<select id="archetypeinputdropdown">
+		<option>Sindian</option>
+		<option>Baro</option>
+		<option>Rokah</option>
+		<option>Teklar</option>
+		<option>Sheos</option>
+		<option>Sindell</option>
+		<option>Palicium</option>
+		<option>Gaios</option>
+		<option>No-Planet</option>
+		<option>Black</option>
+	</select>
 
-		<select id="typeinput" onchange="typeInput()">
-			<option>Creature</option>
-			<option>Combiner Right Half</option>
-			<option>Combiner Left Half</option>
-			<option>Resource</option>
-			<option>Permanent Resource</option>
-			<option>Attachment</option>
-			<option>Activator</option>
-			<option>Planet</option>
+	<div class="activator-specific">
+		<select onchange="lineInput()" id="lineinput">
+			<option>1 Line</option>
+			<option>2 Lines</option>
+			<option>3 Lines</option>
 		</select>
-		<p id="typeinputlabel">What type is this card?</p>
-		<select onchange="starInput()" id="starinput" class="creature-specific">
-			<option>1star</option>
-			<option>2star</option>
-			<option>3star</option>
-			<option>4star</option>
-			<option>5star</option>
-			<option>6star</option>
-			<option>7star</option>
-			<option>8star</option>
-			<option>9star</option>
-			<option>10star</option>
-		</select>
-		<p id="starinputlabel" class="creature-specific">How many stars does this cost?</p>
-		<select onchange="planetInput()" id="planetinput" class="creature-specific combiner-specific">
-			<option>Sindian</option>
-			<option>Baro</option>
-			<option>Rokah</option>
-			<option>Teklar</option>
-			<option>Sheos</option>
-			<option>Sindell</option>
-			<option>Palicium</option>
-			<option>Gaios</option>
-			<option>No-Planet</option>
-		</select>
-		<p id="planetinputlabel" class="creature-specific combiner-specific">Which planet is the creature from?</p>
+		<p id="lineinputlabel">How many lines for the activation condition?</p>
+	</div>
 
-		<input id="textsizeinput" type="number" value="15" onchange="textSizeInput()">
-		<p id="textsizeinputlabel">Rules text size</p>
+	<select id="typeinput" onchange="typeInput()">
+		<option>Creature</option>
+		<option>Combiner Right Half</option>
+		<option>Combiner Left Half</option>
+		<option>Resource</option>
+		<option>Permanent Resource</option>
+		<option>Attachment</option>
+		<option>Moon</option>
+		<option>Activator</option>
+		<option>Planet</option>
+	</select>
+	<p id="typeinputlabel">What type is this card?</p>
+	<select onchange="starInput()" id="starinput" class="creature-specific">
+		<option>1star</option>
+		<option>2star</option>
+		<option>3star</option>
+		<option>4star</option>
+		<option>5star</option>
+		<option>6star</option>
+		<option>7star</option>
+		<option>8star</option>
+		<option>9star</option>
+		<option>10star</option>
+	</select>
+	<p id="starinputlabel" class="creature-specific">How many stars does this cost?</p>
+	<select onchange="planetInput()" id="planetinput" class="creature-specific combiner-specific">
+		<option>Sindian</option>
+		<option>Baro</option>
+		<option>Rokah</option>
+		<option>Teklar</option>
+		<option>Sheos</option>
+		<option>Sindell</option>
+		<option>Palicium</option>
+		<option>Gaios</option>
+		<option>No-Planet</option>
+	</select>
+	<p id="planetinputlabel" class="creature-specific combiner-specific">Which planet is the creature from?</p>
 
-		<input id="titlesizeinput" type="number" value="27" onchange="titleSizeInput()">
-		<p id="titlesizeinputlabel">Title text size</p>
+	<input id="textsizeinput" type="number" value="15" onchange="textSizeInput()">
+	<p id="textsizeinputlabel">Rules text size</p>
 
-		<input id="textoffsetinput" type="number" value="456.5" onchange="textOffsetInput()">
-		<p id="textoffsetinputlabel">Rules text vertical offset</p>
+	<input id="titlesizeinput" type="number" value="27" onchange="titleSizeInput()">
+	<p id="titlesizeinputlabel">Title text size</p>
 
-		<input id="titleoffsetinput" type="number" value="5" onchange="titleOffsetInput()">
-		<p id="titleoffsetinputlabel">Title vertical offset</p>
+	<input id="textoffsetinput" type="number" value="456.5" onchange="textOffsetInput()">
+	<p id="textoffsetinputlabel">Rules text vertical offset</p>
 
-		<input id="textspacinginput" type="number" value="14" onchange="textSpacingInput()">
-		<p id="textspacinginputlabel">Rules text line spacing</p>
+	<input id="titleoffsetinput" type="number" value="5" onchange="titleOffsetInput()">
+	<p id="titleoffsetinputlabel">Title vertical offset</p>
 
-		<input id="starhue" class="star-inputs" type="number" value="0" onchange="starHue()">
-		<p id="starhuelabel" class="star-labels">Star Hue Rotate</p>
+	<input id="textspacinginput" type="number" value="14" onchange="textSpacingInput()">
+	<p id="textspacinginputlabel">Rules text line spacing</p>
 
-		<input id="starbright" class="star-inputs" type="number" value="1" onchange="starBright()">
-		<p id="starsatlabel" class="star-labels">Star Saturation</p>
+	<input id="starhue" class="star-inputs" type="number" value="0" onchange="starHue()">
+	<p id="starhuelabel" class="star-labels">Star Hue Rotate</p>
 
-		<input id="starsat" class="star-inputs" type="number" value="1" onchange="starSat()">
-		<p id="starbrightlabel" class="star-labels">Star Brightness</p>
+	<input id="starbright" class="star-inputs" type="number" value="1" onchange="starBright()">
+	<p id="starsatlabel" class="star-labels">Star Saturation</p>
 
-		<input type="checkbox" id="ridrareinput" onchange="ridRareInput()">
-		<p id="ridrareinputlabel">Ridiculously Rare Hatching</p>
+	<input id="starsat" class="star-inputs" type="number" value="1" onchange="starSat()">
+	<p id="starbrightlabel" class="star-labels">Star Brightness</p>
 
-		<select id="raritydropdown" onchange="rarityInp()">
-			<option>Common</option>
-			<option>Rare</option>
-			<option>Really Rare</option>
-			<option>Ridiculously Rare</option>
-			<option>Chaos Beast</option>
-		</select>
-		<p id="raritydropdownlabel">Rarity of the card</p>
+	<input type="checkbox" id="ridrareinput" onchange="ridRareInput()">
+	<p id="ridrareinputlabel">Ridiculously Rare Hatching</p>
 
-		<button id="downloadbtn" onclick="getScreenshotOfElement()">Download Image</button>
+	<select id="raritydropdown" onchange="rarityInp()">
+		<option>Common</option>
+		<option>Rare</option>
+		<option>Really Rare</option>
+		<option>Ridiculously Rare</option>
+		<option>Chaos Beast</option>
+	</select>
+	<p id="raritydropdownlabel">Rarity of the card</p>
 
-		<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
-		<script src="script.js"></script>
-	</body>
+	<button id="downloadbtn" onclick="getScreenshotOfElement()">Download Image</button>
+
+	<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+	<script src="script.js"></script>
+</body>
+
 </html>
